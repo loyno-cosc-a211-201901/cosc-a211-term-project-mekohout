@@ -1,0 +1,16 @@
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:36:14: warning: expression result unused [-Wunused-value]
+    } return weightAssignments, gradesAssignments, numberAssignments;
+             ^~~~~~~~~~~~~~~~~
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:36:33: warning: expression result unused [-Wunused-value]
+    } return weightAssignments, gradesAssignments, numberAssignments;
+                                ^~~~~~~~~~~~~~~~~
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:78:9: error: no matching function for call to 'assignmentGrader'
+        assignmentGrader();
+        ^~~~~~~~~~~~~~~~
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:45:5: note: candidate function not viable: requires single argument 'className', but no arguments were provided
+int assignmentGrader (string className){
+    ^
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:95:1: error: extraneous closing brace ('}')
+}
+^
+2 warnings and 2 errors generated.
