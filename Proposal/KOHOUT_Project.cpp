@@ -10,8 +10,8 @@
 
 using namespace std;
 ifstream gradeStorage ("/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/grade.txt");
-void assignmentInformation(int [],int,double);
-void assignmentGrader(int[],int,double,double);
+void assignmentInformation(double [],int,double);
+void assignmentGrader(double[],int,double,double);
 string letterGrade(int);
 //void quizInformation();
 //string letterGrade(int);
@@ -19,7 +19,7 @@ string letterGrade(int);
 int main (){
   string className;
   int classNumber=0;
-  int gradesAssignments[20];
+  double gradesAssignments[20];
   int numberAssignments;
   double weightAssignments;
   double averageAssignments;
@@ -63,7 +63,7 @@ int main (){
         gradeStorage.close();
   }
 
-  void assignmentInformation (int gradesAssignments[], int numberAssignments,double weightAssignments){
+  void assignmentInformation (double gradesAssignments[], int numberAssignments,double weightAssignments){
     double temp;
           cout << "How much weight is given to assignments? For 70%, write .7."<<endl;
           cin >> temp;
@@ -82,7 +82,7 @@ int main (){
         //}
 
 
-void assignmentGrader (int gradesAssignments[],int numberAssignments, double weightAssignments, double weightedAssignments){
+void assignmentGrader (double gradesAssignments[],int numberAssignments, double weightAssignments, double weightedAssignments){
       int count = 0;
       int responsePlaceHold;
       double total=0;
@@ -96,29 +96,33 @@ void assignmentGrader (int gradesAssignments[],int numberAssignments, double wei
           //numberAssignments=0;
         } else{//if there are assignments
         numberAssignments=responsePlaceHold; //say how many things will be in the array
-        cout<< "Please enter the grade in percentage notation for each assignment one at a time. For 70% write .70"<<endl;
-      for (int count=0; count<=numberAssignments; count++){
+        cout<< "Please enter the grade in percentage notation for each assignment one at a time. For 70% write 70"<<endl;
+      for (int count=0; count<=numberAssignments+2; count++){
         cout << "Grade: ";
         cin>> gradePlaceHold;
         cin.clear();
         count++;
         if (gradePlaceHold>0&&gradePlaceHold<=1){
         gradesAssignments[count]=gradePlaceHold;
+        //cout <<"grade is "<<gradesAssignments[count];
         //cout<< "grades inputted";
       }}//read in all of the grades for amount earlier said how many there were
-      for (int k=0;k<=20;k++){
+      for (int k=0;k<=numberAssignments;k++){
         total=total+gradesAssignments[k]; // add them all together
       }
+      cout <<"your total is " <<total<<endl; //the total function isnt working
+      cout << "and there are "<<numberAssignments<<endl;
       averageAssignments=total/numberAssignments; //determine what the grade average of the assignments is
-      cout << "Your average assignment grade is: "<< letterGrade(averageAssignments)<<endl; //print out A-F grade
-      weightedAssignments = averageAssignments*weightAssignments;  //return average assignment grade with weight
+      cout << "Your average assignment grade is: "<< (averageAssignments)<<endl; //print out A-F grade
+      //weightedAssignments = averageAssignments*weightAssignments;  //return average assignment grade with weight
       //compositeGradeWeighted[classNumber][0];
-      cout<< "assignments weighted: "<<weightedAssignments<<endl;
-      gradeStorage >> weightedAssignments;
+      //cout<< "assignments weighted: "<<weightedAssignments<<endl;
+      //gradeStorage >> weightedAssignments;
        }
      }
 
 string letterGrade(int grade){
+  grade=grade*100;
   if(grade>=93){
     return "A";
   } else if ((grade < 93) &&(grade>=90)){
