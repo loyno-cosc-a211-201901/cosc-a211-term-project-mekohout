@@ -1,0 +1,22 @@
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:56:16: error: use of undeclared identifier 'userClassInput'
+      } while (userClassInput!="no"||userClassInput!="No");
+               ^
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:56:38: error: use of undeclared identifier 'userClassInput'
+      } while (userClassInput!="no"||userClassInput!="No");
+                                     ^
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:71:9: error: use of undeclared identifier 'gradeStorage'
+    if (gradeStorage.is_open()){                                                                //NOT RUNNING THIS AT ALL
+        ^
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:72:20: error: use of undeclared identifier 'gradeStorage'
+    while (getline(gradeStorage,line)){
+                   ^
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:72:33: error: use of undeclared identifier 'line'
+    while (getline(gradeStorage,line)){
+                                ^
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:73:7: error: use of undeclared identifier 'gradeStorage'
+      gradeStorage>>userClassInput;
+      ^
+/Users/kohou_000/Documents/School/19S/Intro to Programming/GitHub/cosc-a211-term-project-mekohout/Proposal/KOHOUT_Project.cpp:76:11: error: use of undeclared identifier 'gradeStorage'
+    }if (!gradeStorage.is_open()){
+          ^
+7 errors generated.
