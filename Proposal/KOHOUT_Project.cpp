@@ -32,14 +32,25 @@ int main (){
   //int gradesTests[20];
   //numberTests;
   //weightTests;
+  string userClassInput="class";
   string line;
   //int compositeGradeWeighted[10][3];//column: class row: 0=assignment weight, 1=quiz weight, 2=test weight
     cout<< "Welcome to the GPA calculator. This program will store your class name, ";
     cout<< "display your grade, and more!" <<endl;
     cout<< "Please input the name of your first class:"<<endl;
       do {
-
-
+        cin >> userClassInput; //made this variable mean name of class. will store to display
+        cin.clear();
+        if (gradeStorage.is_open()){                                                                //NOT RUNNING THIS AT ALL
+        while (getline(gradeStorage,line)){
+          gradeStorage>>userClassInput;
+          cout<< "Class name: "<<userClassInput<<endl;
+          }
+        }if (!gradeStorage.is_open()){
+          cout<< "File not open"<<endl;
+        }//make this class name a line in the storage file
+        //ask for hours in class
+        //turn input string into a constant per each class
         assignmentInformation(gradesAssignments,numberAssignments,weightAssignments);
         assignmentGrader(gradesAssignments,numberAssignments,weightAssignments,weightedAssignments);
 
@@ -65,19 +76,6 @@ int main (){
 
   void assignmentInformation (double gradesAssignments[], int numberAssignments,double weightAssignments){
     double temp;
-    string userClassInput="class";
-    cin >> userClassInput; //made this variable mean name of class. will store to display
-    cin.clear();
-    if (gradeStorage.is_open()){                                                                //NOT RUNNING THIS AT ALL
-    while (getline(gradeStorage,line)){
-      gradeStorage>>userClassInput;
-      cout<< "Class name: "<<userClassInput<<endl;
-      }
-    }if (!gradeStorage.is_open()){
-      cout<< "File not open"<<endl;
-    }//make this class name a line in the storage file
-    //ask for hours in class
-    //turn input string into a constant per each class
           cout << "How much weight is given to assignments? For 70%, write 70."<<endl;
           cin >> temp;
           cin.clear();
