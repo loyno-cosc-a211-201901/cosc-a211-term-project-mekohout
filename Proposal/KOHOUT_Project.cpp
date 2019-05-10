@@ -9,10 +9,10 @@
 #include <fstream>
 
 using namespace std;
-double assignmentInformation(double[],int,double,double);
+double assignmentInformation(double[],int,double &,double &);
 string letterGrade(double);
-double testInformation(double[],int,double,double);
-double quizInformation(double[],int,double,double);
+double testInformation(double[],int,double &, double &);
+double quizInformation(double[],int,double &,double &);
 //void classGrade(double,double,double,double);
 
 int main (){
@@ -34,8 +34,8 @@ int main (){
     cout<< "Welcome to the GPA calculator. This program will display your class name, ";
     cout<< "and calculate your grade!" <<endl;
     cout<< "Please input the name of your class:"<<endl;
+    cin >> userClassInput; //made this variable mean name of class. will store to display
       do {
-        cin >> userClassInput; //made this variable mean name of class. will store to display
         cin.clear();
         assignmentInformation(gradesAssignments,numberAssignments,weightAssignments,weightedAssignments);
         quizInformation(gradesQuizzes,numberQuizzes,weightQuizzes,weightedQuizzes);
@@ -46,14 +46,15 @@ int main (){
         cout << "weighted assignments: "<<weightedAssignments<<endl;
         cout << "Your grade for this class is "<<totalClassGrade<< " so you got a " <<letterGrade(totalClassGrade)<<endl;
         //classGrade(weightedAssignments,weightedQuizzes,weightedTests,totalClassGrade);
-        //cout << "Enter information for the next class. If no more classes, write 'no'"<<endl;
+        cout << "Enter information for the next class. If no more classes, write 'no'"<<endl;
+        cin >> userClassInput; //made this variable mean name of class. will store to display
 
 
-      } while (userClassInput!="no"||userClassInput!="No");
+     } while (userClassInput!="no"&&userClassInput!="No");
   //calculate weight and display 4.0 scale gpa
   }
 
-double assignmentInformation (double gradesAssignments[],int numberAssignments, double weightAssignments, double weightedAssignments){
+double assignmentInformation (double gradesAssignments[],int numberAssignments, double &weightAssignments, double &weightedAssignments){
       double temp;
         cout << "How much weight is given to assignments? For 70%, write 70."<<endl;
         cin >> temp;
@@ -101,7 +102,7 @@ double assignmentInformation (double gradesAssignments[],int numberAssignments, 
        }
        return weightedAssignments;
      }
-double quizInformation(double gradesQuizzes[],int numberQuizzes, double weightQuizzes, double weightedQuizzes){
+double quizInformation(double gradesQuizzes[],int numberQuizzes, double &weightQuizzes, double &weightedQuizzes){
   double temp;
     cout << "How much weight is given to quizzes? For 70%, write 70."<<endl;
     cin >> temp;
@@ -111,7 +112,7 @@ double quizInformation(double gradesQuizzes[],int numberQuizzes, double weightQu
     }
   int count = 0;
   int responsePlaceHold;
-  double total;
+  double total = 0;
   double gradePlaceHold=0;
   double averageQuizzes;
   cout << "How many quizzes are there to be graded?"<< endl;
@@ -139,7 +140,7 @@ double quizInformation(double gradesQuizzes[],int numberQuizzes, double weightQu
    }
    return weightedQuizzes;
  }
-double testInformation(double gradesTests[],int numberTests, double weightTests, double weightedTests){
+double testInformation(double gradesTests[],int numberTests, double &weightTests, double &weightedTests){
   double temp;
     cout << "How much weight is given to tests? For 70%, write 70."<<endl;
     cin >> temp;
